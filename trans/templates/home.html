@@ -1,6 +1,7 @@
 {% load i18n %}
+{% load parler_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{LANGUAGE_CODE}}">
 
 <head>
     <meta charset="UTF-8">
@@ -25,6 +26,10 @@
         <input type="submit" value="Go">
     </form>
     <h3>{% trans title %}</h3>
+    {% objectlanguage obj LANGUAGE_CODE %}
+  {{ obj.title }}
+  <p>{{obj.content}}</p>
+{% endobjectlanguage %}
 </body>
 
 </html>

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'trans',
     'rosetta',
+    'parler',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -126,10 +128,24 @@ LANGUAGES = (# you can add any language as you like
 LOCALE_PATHS = [
     os.path.join(BASE_DIR,"locale")
 ]
+PARLER_LANGUAGES = {
+    1: (
+        {'code': 'en',},
+        {'code': 'ar',},
+    ),
+    'default': {
+        'fallbacks': ['en'],          # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
+    }
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = 'media/'
+MEDIA_URL = 'media/'
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
